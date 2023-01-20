@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 import { Link } from "react-router-dom";
 import CartPage from "../Pages/CartPage";
@@ -7,11 +7,24 @@ import PaymentPage from "../Pages/PaymentPage";
 import ProductPage from "../Pages/ProductPage";
 import SingleProductPage from "../Pages/SingleProductPage";
 import { Image, Box, Text } from "@chakra-ui/react";
-import { Stack, HStack, VStack, Input,Select,useColorModeValue } from "@chakra-ui/react";
+import {
+  Stack,
+  HStack,
+  VStack,
+  Input,
+  Select,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import Binge from "../Images/BingeBuy.png";
-import { PhoneIcon, ChevronDownIcon, Search2Icon,ChevronUpIcon } from "@chakra-ui/icons";
+import {
+  PhoneIcon,
+  ChevronDownIcon,
+  Search2Icon,
+  ChevronUpIcon,
+} from "@chakra-ui/icons";
 import location from "../Images/location.png";
 import person from "../Images/person.png";
+import Label from "../Images/Label.png";
 import { hover } from "@testing-library/user-event/dist/hover";
 import {
   useDisclosure,
@@ -19,10 +32,11 @@ import {
   Menu,
   MenuButton,
   MenuList,
-} from "@chakra-ui/react"
+} from "@chakra-ui/react";
 
 const NavbarDrdn = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { ishove, onhove, onChove } = useDisclosure();
   return (
     <div>
       <HStack spacing={4} marginLeft="58%" marginTop={1}>
@@ -44,35 +58,38 @@ const NavbarDrdn = () => {
       </HStack>
       <HStack style={{ marginLeft: "5%" }}>
         <Image src={Binge} alt="Dan Abramov" w="15%" />
-        <HStack spacing={0}> <input
-          placeholder="Search For Products.."
-          style={{
-            width: "400px",
-            height: 30,
-            borderColor: "black",
-            border: "solid",
-            borderWidth: "1px",
-            paddingLeft: "20px",
-          }}
-        ></input>
-        <button
-          style={{
-            width: "40px",
-            height: 30,
-            borderColor: "black",
-            backgroundColor: "RGB(133 197 37)",
-          }}
-        >
-          <Search2Icon />
-        </button></HStack>
-       
+        <HStack spacing={0}>
+          {" "}
+          <input
+            placeholder="Search For Products.."
+            style={{
+              width: "400px",
+              height: 30,
+              borderColor: "black",
+              border: "solid",
+              borderWidth: "1px",
+              paddingLeft: "20px",
+            }}
+          ></input>
+          <button
+            style={{
+              width: "40px",
+              height: 30,
+              borderColor: "black",
+              backgroundColor: "RGB(133 197 37)",
+            }}
+          >
+            <Search2Icon />
+          </button>
+        </HStack>
+
         <Stack
           style={{
             width: "150px",
             height: "60px",
             backgroundColor: "RGB(228 231 234)",
             marginLeft: "22%",
-            padding:"5px"
+            padding: "5px",
           }}
         >
           <HStack alignItems="center">
@@ -81,39 +98,80 @@ const NavbarDrdn = () => {
               w={50}
             ></Image>
             <Stack>
-              <Text fontSize={15} >My Basket  0 Items</Text>
-             
+              <Text fontSize={15}>My Basket 0 Items</Text>
             </Stack>
           </HStack>
         </Stack>
       </HStack>
-     
-      <Menu isOpen={isOpen}>
+        <HStack
+          w="300px"
+          spacing={"0px"}
+          marginLeft={"40px"}
+          marginTop={"5px"}
+          backgroundColor="RGB(133 197 37)"
+        >
+          <Menu isOpen={isOpen}>
             <MenuButton
-                variant="ghost"
-                mx={1}
-                w={"200px"}
-                py={[1, 2, 2]}
-                px={4}
-                borderRadius={5}
-                _hover={{ bg:useColorModeValue("RGB(133 197 37)", "RGB(133 197 37))") }}
-                aria-label="Courses"
-                fontWeight="normal"
-                onMouseEnter={onOpen}
-                onMouseLeave={onClose}
-                backgroundColor="RGB(133 197 37)"
-                color="white"
+              variant="ghost"
+              mx={1}
+              w={"200px"}
+              py={[1, 1, 1]}
+              px={4}
+              _hover={{
+                bg: useColorModeValue("RGB(133 197 37)", "RGB(133 197 37))"),
+              }}
+              aria-label="Courses"
+              fontWeight="normal"
+              onMouseEnter={onOpen}
+              onMouseLeave={onClose}
+              backgroundColor="RGB(133 197 37)"
+              color="white"
             >
-               <Text spacing="5px" color="white"  as='b' fontSize="15px">Shop By Category </Text>  {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+              <Text spacing="5px" color="white" as="b" fontSize="17px">
+                Shop By Category{" "}
+              </Text>{" "}
+              {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
             </MenuButton>
             <MenuList onMouseEnter={onOpen} onMouseLeave={onClose}>
-                <MenuItem>Menu Item 1</MenuItem>
-                <MenuItem>Menu Item 2</MenuItem>
-                <MenuItem>Menu Item 3</MenuItem>
+              <MenuItem>Menu Item 1</MenuItem>
+              <MenuItem>Menu Item 2</MenuItem>
+              <MenuItem>Menu Item 3</MenuItem>
             </MenuList>
-        </Menu>
+          </Menu>
+          <HStack
+            border="solid"
+            borderColor="black"
+            borderWidth="1px"
+            variant="ghost"
+            mx={1}
+            w={"100px"}
+            py={[1, 2, 1]}
+            px={2}
+            _hover={{
+              bg: useColorModeValue("RGB(133 197 37)", "RGB(133 197 37))"),
+            }}
+            aria-label="Courses"
+            fontWeight="normal"
+            onMouseEnter={onhove}
+            onMouseLeave={onChove}
+            backgroundColor="white"
+            color="white"
+          >
+            <Image src={Label} w={"30px"} />
+            <Text
+              _hover={{ color: useColorModeValue("white", "white") }}
+              spacing="5px"
+              color="black"
+              as="b"
+              fontSize="15px"
+            >
+              Offers{" "}
+            </Text>
+          </HStack>
+        </HStack>
+      
     </div>
-  )
-}
+  );
+};
 
-export default NavbarDrdn
+export default NavbarDrdn;

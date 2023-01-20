@@ -28,10 +28,6 @@ const Navbar = () => {
       <NavbarDrdn/>
       <HStack>
         <Link to="/">{<LandingPage />}</Link>
-        <Link to="/Cart">{<CartPage />}</Link>
-        <Link to="/Payment">{<PaymentPage />}</Link>
-        <Link to="/Product">{<ProductPage />}</Link>
-        <Link to="/SingleProduct">{<SingleProductPage />}</Link>
       </HStack>
     </Stack>
   );
