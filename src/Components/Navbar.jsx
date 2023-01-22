@@ -26,9 +26,11 @@ const Navbar = () => {
   return (
     <Stack fontSize={12}>
       <NavbarDrdn/>
-      <HStack>
-        <Link to="/">{<LandingPage />}</Link>
-      </HStack>
+      <Link to="/">{<LandingPage />}</Link>
+  <Link to="/Product">{<ProductPage />}</Link>
+  <Link to="/SingleProduct/:id">{<SingleProductPage />}</Link>
+  <Link to="/Cart">{<CartPage />}</Link>
+  <Link to="/Payment">{<PaymentPage />}</Link>
     </Stack>
   );
 };
